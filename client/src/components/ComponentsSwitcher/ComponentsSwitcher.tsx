@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const LeftSidebarAndApiOne = React.lazy(() => import('./LeftSidebarAndApiOne'));
 const LeftSidebarAndApiTwo = React.lazy(() => import('./LeftSidebarAndApiTwo'));
@@ -27,9 +27,9 @@ const ComponentsSwitcher: React.FC<ComponentsSwitcherProps> = ({ modules }) => {
     };
 
     return (
-    <div>
+    <>
         { renderedComponents() }
-    </div>
+    </>
   )
 }
 

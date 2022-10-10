@@ -9,13 +9,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import config from '../../config'; 
 import { styled } from '@mui/system';
 import { Drawer } from '@mui/material';
+import SidebarPositions from '../../interfaces/SidebarPositions';
 
 interface NavbarProps {
-    sidebarPosition?: 'right',
+    sidebarPosition?: SidebarPositions,
 };
 
 interface StyledToolbarProps {
-    position: 'right' | undefined,
+    position: SidebarPositions,
 } 
 
 const StyledToolbar = styled(Toolbar)<StyledToolbarProps>(({ position }) => ({
@@ -29,18 +30,20 @@ const DrawerContent = styled(Typography)({
 
 const Navbar: React.FC<NavbarProps> = ({ sidebarPosition }) => {
   const [drawerIsOpened, setDrawerIsOpened] = useState(false);
+  const { defaultModuleValues: { sidebarDefaultPosition } } = config;
+  const position = (sidebarPosition || sidebarDefaultPosition) as SidebarPositions;
 
   return (
     <Box>
       <AppBar position="static">
-        <StyledToolbar position={ sidebarPosition } variant="dense">
+        <StyledToolbar position={ position } variant="dense">
           <IconButton onClick={() => setDrawerIsOpened(true)} edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
         </StyledToolbar>
       </AppBar>
       <Drawer
-        anchor={ sidebarPosition }
+        anchor={ position }
         open={ drawerIsOpened }
         onClose={() => setDrawerIsOpened(false)}
       >
