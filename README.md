@@ -1,8 +1,7 @@
-# Practical example of dynamically loading of bundles in Webkit + React
+# Practical example of dynamically loading of bundles in Webkit
 
--> The present application contains a simple Node.js server with 2 routes ( `/api1` and `/api2`) and both of them respond with a static json file.
-
--> Regarding to the UI, I created a React & Typescript application which <ins> renders </ins> **ONLY** the content of homepage <ins> based </ins> on `modules` <ins> query parameter </ins>
+-> The present application contains a simple **Node.js** server with 2 routes ( `/api1` and `/api2`) and both of them respond with a static json file.
+-> Regarding to the UI, I created a **React** & **Typescript** application which <ins> renders </ins> **ONLY** the content of homepage <ins> based </ins> on `modules` <ins> query parameter </ins>
 
 Particularities:
 - the query values are stored in `modules` parameter ( `/?modules=changesidebar,newlist` )
